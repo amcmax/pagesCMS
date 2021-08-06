@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import Head from "next/head";
+import Image from "next/image";
+import PageLink from "../components/PageLink";
+import styles from "../styles/Home.module.css";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
-
-export default function Home( { pages } ) {
-  console.log('pages', pages);
+export default function Home({ pages }) {
+  console.log("pages", pages);
 
   return (
     <div className={styles.container}>
@@ -20,43 +20,30 @@ export default function Home( { pages } ) {
           Welcome to <a href="">Pages CMS!</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '} some pages.
-        </p>
+        <p className={styles.description}>Get started by editing some pages.</p>
 
         <div className={styles.grid}>
-        {pages.map(page => {
-    return (
-      <a key={page._id} href={`/${encodeURIComponent(page.url)}`} className={styles.card}>
-        <h3>{ page.name }</h3>
-      </a>
-    );
-  })}
+          {pages.map((page) => {
+            return (
+              <PageLink key={page._id} page={page} />
+            );
+          })}
         </div>
-
-
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            Amir MC
-          </span>
+        <a href="" target="_blank" rel="noopener noreferrer">
+          Powered by <span className={styles.logo}>Amir MC</span>
         </a>
       </footer>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: 'http://localhost:5000/graphql',
-    cache: new InMemoryCache()
+    uri: "http://localhost:5000/graphql",
+    cache: new InMemoryCache(),
   });
 
   const { data, error, loading } = await client.query({
@@ -68,15 +55,15 @@ export async function getStaticProps() {
           url
         }
       }
-    `
+    `,
   });
 
-  if (loading) return <p>Loading...</p>
-  if (error) return 
+  if (loading) return <p>Loading...</p>;
+  if (error) return;
 
   return {
     props: {
-      pages: data.pages
-    }
-  }
+      pages: data.pages,
+    },
+  };
 }
