@@ -27,7 +27,7 @@ export default function Home( { pages } ) {
         <div className={styles.grid}>
         {pages.map(page => {
     return (
-      <a key={page.id} href={page.url} className={styles.card}>
+      <a key={page._id} href={`/${encodeURIComponent(page.url)}`} className={styles.card}>
         <h3>{ page.name }</h3>
       </a>
     );
@@ -59,15 +59,20 @@ export async function getStaticProps() {
     cache: new InMemoryCache()
   });
 
-  const { data } = await client.query({
+  const { data, error, loading } = await client.query({
     query: gql`
       query Pages {
         pages {
+          _id
           name
+          url
         }
       }
     `
   });
+
+  if (loading) return <p>Loading...</p>
+  if (error) return 
 
   return {
     props: {
