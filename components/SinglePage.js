@@ -3,6 +3,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/dist/next-server/lib/head";
 import Link from "next/dist/client/link";
+import PageElements from "./PageElements";
 
 const SINGLE_PAGE_QUERY = gql`
   query SINGLE_PAGE_QUERY($slug: String!) {
@@ -19,7 +20,7 @@ export default function SinglePage({}) {
   const router = useRouter();
   const code = router.query;
 
-  const slug = code[Object.keys(code)[0]];;
+  const slug = code[Object.keys(code)[0]];
 
   const { data, loading, error } = useQuery(SINGLE_PAGE_QUERY, {
     variables: {
@@ -38,14 +39,15 @@ export default function SinglePage({}) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{data.page.name}</h1>
+        <h1 className={styles.title}>Page Title: {data.page.name}</h1>
 
         <p className={styles.description}>Edit page elements below</p>
-        <p className={styles.description}>{data.page.description}</p>
+        <p className={styles.description}>
+          Page Description: {data.page.description}
+        </p>
 
         <Link href="/">Back to Pages</Link>
-
-        <div className={styles.grid}></div>
+        <PageElements page_id={data.page._id} />
       </main>
 
       <footer className={styles.footer}>
