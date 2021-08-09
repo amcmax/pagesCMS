@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import CreatePage from "../components/CreatePage";
 import PagesList from "../components/PagesList";
+import AllPagesView from "../components/AllPagesView";
 
 export default function Home({ pages }) {
   console.log("pages", pages);
@@ -21,9 +22,7 @@ export default function Home({ pages }) {
 
         <p className={styles.description}>Get started by editing some pages.</p>
 
-        <CreatePage />
-
-        <PagesList />
+        <AllPagesView />
 
       </main>
 
