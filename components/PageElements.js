@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import styles from "../styles/Home.module.css";
+import TextResourcesTable from "./TextResourcesTable";
 
 export const ALL_ELEMENTS_QUERY = gql`
   query ALL_ELEMENTS_QUERY($page_id: String!) {
@@ -10,7 +11,7 @@ export const ALL_ELEMENTS_QUERY = gql`
   }
 `;
 
-export default function PageElements({page_id}) {
+export default function PageElements({ page_id }) {
   const { loading, error, data } = useQuery(ALL_ELEMENTS_QUERY, {
     variables: {
       page_id,
@@ -22,11 +23,5 @@ export default function PageElements({page_id}) {
 
   const { pageResources: allElements } = data;
 
-  return (
-    <div className={styles.grid}>
-      {allElements.map((e) => {
-        return e.value;
-      })}
-    </div>
-  );
+  return <TextResourcesTable allElements={allElements} />;
 }
