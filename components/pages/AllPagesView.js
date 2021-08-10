@@ -1,6 +1,4 @@
 import { gql, useQuery } from "@apollo/client";
-import styles from "../styles/Home.module.css";
-import PageLink from "./PageLink";
 import CreatePage from "./CreatePage";
 import PagesList from "./PagesList";
 

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import AllPagesView from "../components/AllPagesView";
+import AllPagesView from "../components/pages/AllPagesView";
 
 export default function Home({ pages }) {
   console.log("pages", pages);

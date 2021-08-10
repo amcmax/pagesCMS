@@ -1,4 +1,4 @@
-import useForm from "../lib/useForm";
+import useForm from "../../lib/useForm";
 import { useMutation, gql } from "@apollo/client";
 
 const CREATE_PAGE_MUTATION = gql`
