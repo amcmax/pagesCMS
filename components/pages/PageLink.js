@@ -1,14 +1,11 @@
-import styles from "../../styles/Home.module.css";
 
-export default function PageLink({ page }) {
-  return (
-    <a
-      key={page._id}
-      href={`/${encodeURIComponent(page.url)}`}
-      className={styles.card}
-    >
-      <img src={page?.screenImage?.publicUrlTransformed} />
-      <h3>{page.name}</h3>
-    </a>
-  );
-}
+// export default function PageLink({ page }) {
+//   return (
+//     <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+//       <div>
+//         <div class="text-xl font-medium text-black">{page.name}</div>
+//           <p class="text-gray-500">Edit</p></a>
+//       </div>
+//     </div>
+//   );
+// }
