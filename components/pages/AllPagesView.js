@@ -21,8 +21,8 @@ export default function AllPagesView() {
   const { pages: allPages } = data;
 
   return (
-    <div>
-      <CreatePage />
+    <div class="container mx-auto p-6 font-mono">
+      <CreatePage  />
 
       <PagesList allPages={allPages}/>
     </div>

@@ -31,7 +31,7 @@ export default function CreatePage() {
   );
 
   return (
-    <div class="object-center w-full max-w-xl">
+    <div class="container mx-auto p-6 object-center w-full max-w-xl">
       <form
         class="bg-white rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={async (e) => {

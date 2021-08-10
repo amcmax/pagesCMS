@@ -3,7 +3,7 @@ import PageLink from "./PageLink";
 
 export default function PagesList({ allPages }) {
   return (
-    <div class="container mx-auto p-6 font-mono">
+    <div class="container mx-auto p-6">
       <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
         <div class="w-full">
           <table class="w-full">
