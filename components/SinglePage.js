@@ -1,4 +1,3 @@
-import styles from "../styles/Home.module.css";
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/dist/next-server/lib/head";
@@ -34,29 +33,24 @@ export default function SinglePage({}) {
   if (error) return <p>Error...</p>;
 
   return (
-    <div className={styles.container}>
+    <div class="container mx-auto p-6 font-mono">
       <Head>
         <title>{slug}</title>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Page Title: {data.page.name}</h1>
+      <main>
+        <h1>Page Title: {data.page.name}</h1>
 
-        <p className={styles.description}>Edit page elements below</p>
-        <p className={styles.description}>
+        <p>Edit page elements below</p>
+        <p>
           Page Description: {data.page.description}
         </p>
+        <Link href="/">Back to Pages</Link>
+
 
         <CreatePageElement page_id={data.page._id}/>
-        <Link href="/">Back to Pages</Link>
         <PageElements page_id={data.page._id} />
       </main>
-
-      <footer className={styles.footer}>
-        <a href="" target="_blank" rel="noopener noreferrer">
-          Powered by <span className={styles.logo}>Amir MC</span>
-        </a>
-      </footer>
     </div>
   );
 }

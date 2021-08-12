@@ -1,5 +1,3 @@
-import styles from "../../styles/Home.module.css";
-import PageLink from "./PageLink";
 
 export default function PagesList({ allPages }) {
   return (
