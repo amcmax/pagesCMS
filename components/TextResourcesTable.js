@@ -26,10 +26,10 @@ export default function TextResourcesTable({ allElements }) {
                       <p class="font-semibold text-black">{element.value}</p>
                   </td>
                   <td class="px-4 py-3 border">
-                      <p class="font-semibold text-black">Text</p>
+                      <p class="font-semibold text-black">{element.metadata.type}</p>
                   </td>
                   <td class="px-4 py-3 border">
-                      <p class="font-semibold text-black">...</p>
+                      <p class="font-semibold text-black">{element._id}</p>
                   </td>
                   <td class="px-4 py-3 border">
                       <p class="font-semibold text-black">Edit</p>

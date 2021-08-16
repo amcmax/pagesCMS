@@ -22,7 +22,7 @@ export default function PagesList({ allPages }) {
                     </td>
                     <td class="px-4 py-3 border">
                       <a href={`/${encodeURIComponent(page.url)}`}>
-                        <p class="font-semibold text-black">0</p>
+                        <p class="font-semibold text-black">{page.elementsCount}</p>
                       </a>
                     </td>
                   </tr>

@@ -8,6 +8,7 @@ export const ALL_PAGES_QUERY = gql`
       _id
       name
       url
+      elementsCount
     }
   }
 `;
