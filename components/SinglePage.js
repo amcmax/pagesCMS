@@ -7,7 +7,7 @@ import CreatePageElement from "./CreatePageElement";
 
 const SINGLE_PAGE_QUERY = gql`
   query SINGLE_PAGE_QUERY($slug: String!) {
-    page(url: $slug) {
+    pageByUrl(url: $slug) {
       _id
       name
       url
@@ -39,17 +39,14 @@ export default function SinglePage({}) {
       </Head>
 
       <main>
-        <h1>Page Title: {data.page.name}</h1>
+        <h1>Page Title: {data.pageByUrl.name}</h1>
 
         <p>Edit page elements below</p>
-        <p>
-          Page Description: {data.page.description}
-        </p>
+        <p>Page Description: {data.pageByUrl.description}</p>
         <Link href="/">Back to Pages</Link>
 
-
-        <CreatePageElement page_id={data.page._id}/>
-        <PageElements page_id={data.page._id} />
+        <CreatePageElement page_id={data.pageByUrl._id} />
+        <PageElements page_id={data.pageByUrl._id} />
       </main>
     </div>
   );
