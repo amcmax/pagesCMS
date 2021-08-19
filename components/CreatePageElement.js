@@ -1,11 +1,9 @@
 import useForm from "../lib/useForm";
 import { useMutation, gql } from "@apollo/client";
+import { ALL_ELEMENTS_QUERY } from "./PageElements";
 
 const CREATE_PAGE_ELEMENT_MUTATION = gql`
-  mutation CREATE_PAGE_ELEMENT_MUTATION(
-    $value: String!
-    $pageId: String!
-  ) {
+  mutation CREATE_PAGE_ELEMENT_MUTATION($value: String!, $pageId: String!) {
     addTextResource(value: $value, pageId: $pageId) {
       _id
       value
@@ -13,23 +11,23 @@ const CREATE_PAGE_ELEMENT_MUTATION = gql`
   }
 `;
 
-export default function CreatePageElement({page_id}) {
-
+export default function CreatePageElement({ page_id }) {
   const { inputs, handleChange } = useForm({
     value: "Cool",
     pageId: page_id,
-    type: "text"
+    type: "text",
   });
 
   const [createPageElement, { loading, error, data }] = useMutation(
     CREATE_PAGE_ELEMENT_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [ALL_ELEMENTS_QUERY, "pageResources"],
     }
   );
 
   return (
-<div class="container mx-auto p-6 object-center w-full max-w-xl">
+    <div class="container mx-auto p-6 object-center w-full max-w-xl">
       <form
         class="bg-white rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={async (e) => {

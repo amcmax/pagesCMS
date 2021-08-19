@@ -1,5 +1,6 @@
 import useForm from "../../lib/useForm";
 import { useMutation, gql } from "@apollo/client";
+import { ALL_PAGES_QUERY } from "./AllPagesView";
 
 const CREATE_PAGE_MUTATION = gql`
   mutation CREATE_PAGE_MUTATION(
@@ -27,6 +28,7 @@ export default function CreatePage() {
     CREATE_PAGE_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [{ query: ALL_PAGES_QUERY }],
     }
   );
 
