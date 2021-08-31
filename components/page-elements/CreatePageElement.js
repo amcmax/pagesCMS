@@ -1,4 +1,4 @@
-import useForm from "../lib/useForm";
+import useForm from "../../lib/useForm";
 import { useMutation, gql } from "@apollo/client";
 import { ALL_ELEMENTS_QUERY } from "./PageElements";
 

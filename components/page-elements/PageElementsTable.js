@@ -1,4 +1,4 @@
-export default function TextResourcesTable({ allElements }) {
+export default function PageElementsTable({ allElements }) {
   return (
     <div class="container mx-auto p-6">
       <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
