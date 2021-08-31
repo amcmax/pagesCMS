@@ -17,7 +17,7 @@ const CREATE_PAGE_MUTATION = gql`
   }
 `;
 
-export default function CreatePage() {
+export default function NewPageForm() {
   const { inputs, handleChange } = useForm({
     name: "Cool",
     description: "cool",

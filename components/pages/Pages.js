@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import CreatePage from "./CreatePage";
+import NewPageForm from "./NewPageForm";
 import PagesTable from "./PagesTable";
 
 export const ALL_PAGES_QUERY = gql`
@@ -23,7 +23,7 @@ export default function Pages() {
 
   return (
     <div class="container mx-auto p-6 font-mono">
-      <CreatePage />
+      <NewPageForm />
 
       <PagesTable allPages={allPages} />
     </div>
