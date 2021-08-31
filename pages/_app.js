@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <div class="bg-pink-50">
+      <div>
         <Component {...pageProps} />
       </div>
     </ApolloProvider>
