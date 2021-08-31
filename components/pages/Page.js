@@ -5,6 +5,7 @@ import Link from "next/dist/client/link";
 import PageElements from "../page-elements/PageElements";
 import CreatePageElement from "../page-elements/NewPageElementForm";
 import NewPageElementForm from "../page-elements/NewPageElementForm";
+import PageInfo from "./PageInfo";
 
 const SINGLE_PAGE_QUERY = gql`
   query SINGLE_PAGE_QUERY($slug: String!) {
@@ -40,12 +41,10 @@ export default function Page({}) {
       </Head>
 
       <main>
-        <h1>Page Title: {data.pageByUrl.name}</h1>
-
-        <p>Edit page elements below</p>
-        <p>Page Description: {data.pageByUrl.description}</p>
-        <Link href="/">Back to Pages</Link>
-
+        <Link href="/">
+          <a class="font-semibold text-black">Back to Pages</a>
+        </Link>
+        <PageInfo data={data} />
         <NewPageElementForm page_id={data.pageByUrl._id} />
         <PageElements page_id={data.pageByUrl._id} />
       </main>
