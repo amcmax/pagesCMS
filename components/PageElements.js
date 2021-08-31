@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import TextResourcesTable from "./TextResourcesTable";
+import TextResourcesTable from "./text-resources/TextResourcesTable";
 
 export const ALL_ELEMENTS_QUERY = gql`
   query ALL_ELEMENTS_QUERY($page_id: String!) {

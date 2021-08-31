@@ -4,6 +4,6 @@ import Link from "next/link";
 import Page from "../components/pages/Page";
 import { useRouter } from "next/router";
 
-export default function Page({ id }) {
+export default function PageView({ id }) {
   return <Page />;
 }
