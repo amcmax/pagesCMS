@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import Head from "next/dist/next-server/lib/head";
 import Link from "next/dist/client/link";
 import PageElements from "../page-elements/PageElements";
-import CreatePageElement from "../page-elements/CreatePageElement";
+import CreatePageElement from "../page-elements/NewPageElementForm";
+import NewPageElementForm from "../page-elements/NewPageElementForm";
 
 const SINGLE_PAGE_QUERY = gql`
   query SINGLE_PAGE_QUERY($slug: String!) {
@@ -45,7 +46,7 @@ export default function Page({}) {
         <p>Page Description: {data.pageByUrl.description}</p>
         <Link href="/">Back to Pages</Link>
 
-        <CreatePageElement page_id={data.pageByUrl._id} />
+        <NewPageElementForm page_id={data.pageByUrl._id} />
         <PageElements page_id={data.pageByUrl._id} />
       </main>
     </div>

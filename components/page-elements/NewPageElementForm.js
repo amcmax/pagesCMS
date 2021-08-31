@@ -11,7 +11,7 @@ const CREATE_PAGE_ELEMENT_MUTATION = gql`
   }
 `;
 
-export default function CreatePageElement({ page_id }) {
+export default function NewPageElementForm({ page_id }) {
   const { inputs, handleChange } = useForm({
     value: "Cool",
     pageId: page_id,
