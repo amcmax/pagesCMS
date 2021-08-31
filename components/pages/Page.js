@@ -2,8 +2,8 @@ import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import Head from "next/dist/next-server/lib/head";
 import Link from "next/dist/client/link";
-import PageElements from "./PageElements";
-import CreatePageElement from "./CreatePageElement";
+import PageElements from "../PageElements";
+import CreatePageElement from "../CreatePageElement";
 
 const SINGLE_PAGE_QUERY = gql`
   query SINGLE_PAGE_QUERY($slug: String!) {
@@ -16,7 +16,7 @@ const SINGLE_PAGE_QUERY = gql`
   }
 `;
 
-export default function SinglePage({}) {
+export default function Page({}) {
   const router = useRouter();
   const code = router.query;
 
