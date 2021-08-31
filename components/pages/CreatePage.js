@@ -1,6 +1,6 @@
 import useForm from "../../lib/useForm";
 import { useMutation, gql } from "@apollo/client";
-import { ALL_PAGES_QUERY } from "./AllPagesView";
+import { ALL_PAGES_QUERY } from "./Pages";
 
 const CREATE_PAGE_MUTATION = gql`
   mutation CREATE_PAGE_MUTATION(

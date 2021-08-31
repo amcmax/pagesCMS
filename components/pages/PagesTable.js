@@ -1,5 +1,4 @@
-
-export default function PagesList({ allPages }) {
+export default function PagesTable({ allPages }) {
   return (
     <div class="container mx-auto p-6">
       <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
@@ -22,7 +21,9 @@ export default function PagesList({ allPages }) {
                     </td>
                     <td class="px-4 py-3 border">
                       <a href={`/${encodeURIComponent(page.url)}`}>
-                        <p class="font-semibold text-black">{page.elementsCount}</p>
+                        <p class="font-semibold text-black">
+                          {page.elementsCount}
+                        </p>
                       </a>
                     </td>
                   </tr>

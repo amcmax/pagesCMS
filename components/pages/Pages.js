@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import CreatePage from "./CreatePage";
-import PagesList from "./PagesList";
+import PagesTable from "./PagesTable";
 
 export const ALL_PAGES_QUERY = gql`
   query Pages {
@@ -13,7 +13,7 @@ export const ALL_PAGES_QUERY = gql`
   }
 `;
 
-export default function AllPagesView() {
+export default function Pages() {
   const { loading, error, data } = useQuery(ALL_PAGES_QUERY);
 
   if (error) return <div>Error loading pages.</div>;
@@ -23,10 +23,9 @@ export default function AllPagesView() {
 
   return (
     <div class="container mx-auto p-6 font-mono">
-      <CreatePage  />
+      <CreatePage />
 
-      <PagesList allPages={allPages}/>
+      <PagesTable allPages={allPages} />
     </div>
-
   );
 }

@@ -1,10 +1,8 @@
 import Head from "next/head";
-import AllPagesView from "../components/pages/AllPagesView";
-import 'tailwindcss/tailwind.css'
+import Pages from "../components/pages/Pages";
+import "tailwindcss/tailwind.css";
 
-export default function Home({ pages }) {
-  console.log("pages", pages);
-
+export default function Home() {
   return (
     <div className="mx-auto px-4">
       <Head>
@@ -14,7 +12,7 @@ export default function Home({ pages }) {
       </Head>
 
       <main>
-        <AllPagesView />
+        <Pages />
       </main>
     </div>
   );
